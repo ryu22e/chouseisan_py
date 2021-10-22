@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 import requests
 
 
@@ -41,7 +43,10 @@ class TestUserPage:
         from chouseisan_py._pages import UserPage
 
         responses.add(
-            responses.GET, "https://chouseisan.com/user", body=html.read("login.html")
+            responses.GET,
+            "https://chouseisan.com/user",
+            body=html.read("login.html"),
+            status=HTTPStatus.FOUND.value,
         )
         session = requests.session()
 
