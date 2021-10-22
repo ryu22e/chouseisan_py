@@ -587,6 +587,22 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "types-beautifulsoup4"
+version = "4.10.4"
+description = "Typing stubs for beautifulsoup4"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "types-requests"
+version = "2.25.11"
+description = "Typing stubs for requests"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "typing-extensions"
 version = "3.10.0.2"
 description = "Backported and Experimental Type Hints for Python 3.5+"
@@ -642,7 +658,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "2e1d8a6200c9f75eb2dd361b08eca3e6de87747aee4460f802514f1b7f0b8c8d"
+content-hash = "15e322ffed56c034f80bd7eb6077a608a807b038ad05bbf69e939f7b34ba724a"
 
 [metadata.files]
 atomicwrites = [
@@ -987,6 +1003,14 @@ typed-ast = [
     {file = "typed_ast-1.4.3-cp39-cp39-win32.whl", hash = "sha256:209596a4ec71d990d71d5e0d312ac935d86930e6eecff6ccc7007fe54d703808"},
     {file = "typed_ast-1.4.3-cp39-cp39-win_amd64.whl", hash = "sha256:9c6d1a54552b5330bc657b7ef0eae25d00ba7ffe85d9ea8ae6540d2197a3788c"},
     {file = "typed_ast-1.4.3.tar.gz", hash = "sha256:fb1bbeac803adea29cedd70781399c99138358c26d05fcbd23c13016b7f5ec65"},
+]
+types-beautifulsoup4 = [
+    {file = "types-beautifulsoup4-4.10.4.tar.gz", hash = "sha256:5c191192c930b547ef72c6023b98f5dfbf2a032df59911db3e92cf3ef59df4b0"},
+    {file = "types_beautifulsoup4-4.10.4-py3-none-any.whl", hash = "sha256:116f5ca86b71c8667e65e4e6d1a03c2e991e14af6b14c2f79a939d5686f1d68a"},
+]
+types-requests = [
+    {file = "types-requests-2.25.11.tar.gz", hash = "sha256:b279284e51f668e38ee12d9665e4d789089f532dc2a0be4a1508ca0efd98ba9e"},
+    {file = "types_requests-2.25.11-py3-none-any.whl", hash = "sha256:ba1d108d512e294b6080c37f6ae7cb2a2abf527560e2b671d1786c1fc46b541a"},
 ]
 typing-extensions = [
     {file = "typing_extensions-3.10.0.2-py2-none-any.whl", hash = "sha256:d8226d10bc02a29bcc81df19a26e56a9647f8b0a6d4a83924139f4a8b01f17b7"},
