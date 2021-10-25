@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>調整さん - 簡単スケジュール調整、出欠管理ツール</title>
+  </head>
+  <body>
+    <form action="/schedule/newEvent/create" method="post" id="newEventForm" class="clearfix">
+      <input id="name" class="form-input" maxlength="100" name="name" value="" type="text">
+      <textarea rows="10" id="comment" class="form-textarea event-detail-textarea" name="comment"></textarea>
+      <textarea rows="10" id="kouho" class="form-textarea event-choice-textarea" name="kouho"></textarea>
+      <input id="chousei_token" name="chousei_token" value="testtoken" type="hidden">
+      <button id="createBtn" class="create-event-button  " type="submit" style="display: block;"><span class="icon-flag"></span><span>出欠表をつくる</span></button>
+    </form>
+  </body>
+</html>

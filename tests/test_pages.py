@@ -121,3 +121,65 @@ class TestUserPage:
         p = UserPage(session)
         with pytest.raises(LoginError):
             p.login(email, password)
+
+    def test_goto_top_page(self, html, responses):
+        """Go to top page."""
+        from chouseisan_py._pages import TopPage, UserPage
+
+        responses.add(
+            responses.GET, "https://chouseisan.com/user", body=html.read("user.html")
+        )
+        responses.add(
+            responses.GET, "https://chouseisan.com/", body=html.read("top.html")
+        )
+        session = requests.session()
+
+        p = UserPage(session)
+        actual = p.go_to_top_page()
+
+        assert type(actual) is TopPage
+
+
+class TestTopPage:
+    def test_show_top_page(self, html, responses):
+        from chouseisan_py._pages import TopPage
+
+        responses.add(
+            responses.GET, "https://chouseisan.com/", body=html.read("top.html")
+        )
+        session = requests.session()
+
+        TopPage(session)
+
+    def test_create_event(self, html, responses):
+        from chouseisan_py._pages import NewEventPage, TopPage
+
+        responses.add(
+            responses.GET, "https://chouseisan.com/", body=html.read("top.html")
+        )
+        chousei_token = "testtoken"
+        name = "テストイベント"
+        comment = "テストコメント"
+        kouho = """10/17(日) 19:00〜
+10/18(月) 19:00〜
+10/19(火) 19:00〜"""
+        data = {
+            "chousei_token": chousei_token,
+            "name": name,
+            "comment": comment,
+            "kouho": kouho,
+        }
+        responses.add(
+            responses.POST,
+            "https://chouseisan.com/schedule/newEvent/create",
+            body=html.read("new_event.html"),
+            status=HTTPStatus.FOUND.value,
+            match=[matchers.urlencoded_params_matcher(data)],
+        )
+        session = requests.session()
+
+        p = TopPage(session)
+        actual = p.create_event(name, comment, kouho)
+
+        assert type(actual) is NewEventPage
+        assert actual.get_event_url() == "https://chouseisan.com/s?h=test"
