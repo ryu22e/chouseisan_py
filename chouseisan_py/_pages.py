@@ -23,8 +23,8 @@ class UserPage:
         title = self.soup.title
         if not title:
             return False
-        title_string = title.string
-        return title_string.endswith("さんのマイページ | 調整さん") if title_string else False
+        title_text = title.text
+        return title_text.endswith("さんのマイページ | 調整さん") if title_text else False
 
     def login(self, email: str, password: str) -> None:
         form_chousei_token = self.soup.find(id="form_chousei_token")
