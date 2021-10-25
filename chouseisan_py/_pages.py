@@ -6,9 +6,7 @@ from bs4 import BeautifulSoup
 from bs4.element import Tag
 from requests.sessions import Session
 
-
-class LoginError(Exception):
-    pass
+from .exceptions import LoginError
 
 
 class UserPage:

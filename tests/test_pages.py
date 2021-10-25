@@ -92,7 +92,8 @@ class TestUserPage:
         self, html, responses
     ):
         """Raise login error if the email and password are not correct."""
-        from chouseisan_py._pages import LoginError, UserPage
+        from chouseisan_py._pages import UserPage
+        from chouseisan_py.exceptions import LoginError
 
         responses.add(
             responses.GET,
