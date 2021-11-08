@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from bs4.element import Tag
 from requests.sessions import Session
 
-from .exceptions import LoginError
+from .exceptions import LoginError, TagNotFoundError
 
 
 class UserPage:
@@ -25,12 +25,11 @@ class UserPage:
         return title_text.endswith("さんのマイページ | 調整さん") if title_text else False
 
     def login(self, email: str, password: str) -> None:
-        form_chousei_token = self.soup.find(id="form_chousei_token")
-        chousei_token = (
-            form_chousei_token.get("value")
-            if isinstance(form_chousei_token, Tag)
-            else ""
-        )
+        attrs = {"id": "form_chousei_token"}
+        form_chousei_token = self.soup.find(attrs=attrs)
+        if not isinstance(form_chousei_token, Tag):
+            raise TagNotFoundError(attrs)
+        chousei_token = form_chousei_token.get("value")
         data = {
             "chousei_token": chousei_token,
             "email": email,
@@ -56,14 +55,18 @@ class TopPage:
         self.soup = BeautifulSoup(r.content, "html.parser")
 
     def _extract_action_url(self):
-        new_event_form = self.soup.find(id="newEventForm")
-        return new_event_form.get("action") if isinstance(new_event_form, Tag) else ""
+        attrs = {"id": "newEventForm"}
+        new_event_form = self.soup.find(attrs=attrs)
+        if not isinstance(new_event_form, Tag):
+            raise TagNotFoundError(attrs)
+        return new_event_form.get("action")
 
     def create_event(self, name: str, comment: str, kouho: str) -> NewEventPage:
-        chousei_token = self.soup.find(id="chousei_token")
-        chousei_token_value = (
-            chousei_token.get("value") if isinstance(chousei_token, Tag) else ""
-        )
+        attrs = {"id": "chousei_token"}
+        chousei_token = self.soup.find(attrs=attrs)
+        if not isinstance(chousei_token, Tag):
+            raise TagNotFoundError(attrs)
+        chousei_token_value = chousei_token.get("value")
         data = {
             "chousei_token": chousei_token_value,
             "name": name,
@@ -85,6 +88,11 @@ class NewEventPage:
         self.soup = soup
 
     def get_event_url(self) -> str:
-        list_url = self.soup.find(id="listUrl")
-        value = list_url.get("value") if isinstance(list_url, Tag) else ""
-        return value if isinstance(value, str) else ""
+        attrs = {"id": "listUrl"}
+        list_url = self.soup.find(attrs=attrs)
+        if not isinstance(list_url, Tag):
+            raise TagNotFoundError(attrs)
+        value = list_url.get("value")
+        if not value:
+            value = ""
+        return value[0] if isinstance(value, list) else value
