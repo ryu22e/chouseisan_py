@@ -165,6 +165,7 @@ class TestUserPage:
 
 class TestTopPage:
     def test_show_top_page(self, html, responses):
+        """Show top page."""
         from chouseisan_py._pages import TopPage
 
         responses.add(
@@ -175,6 +176,7 @@ class TestTopPage:
         TopPage(session)
 
     def test_create_event(self, html, responses):
+        """Create event."""
         from chouseisan_py._pages import NewEventPage, TopPage
 
         responses.add(
