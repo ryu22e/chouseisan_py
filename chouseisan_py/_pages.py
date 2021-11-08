@@ -18,11 +18,8 @@ class UserPage:
 
     @property
     def is_authenticated(self) -> bool:
-        title = self.soup.title
-        if not title:
-            return False
-        title_text = title.text
-        return title_text.endswith("さんのマイページ | 調整さん") if title_text else False
+        user_link = self.soup.select_one("a[href='/user']")
+        return user_link is not None
 
     def login(self, email: str, password: str) -> None:
         attrs = {"id": "form_chousei_token"}
