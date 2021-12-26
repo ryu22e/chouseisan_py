@@ -1,8 +1,36 @@
 from datetime import datetime
+from unittest.mock import MagicMock
+
+import pytest
+
+
+@pytest.fixture()
+def mock_user_page_instance(mocker):
+    mock_user_page = mocker.patch("chouseisan_py.chouseisan.UserPage")
+    mock_user_page_instance = mock_user_page.return_value
+    mock_user_page_instance.is_authenticated = False
+
+    return mock_user_page_instance
+
+
+EVENT_URL = "https://chouseisan.com/s?h=test"
+
+
+@pytest.fixture()
+def mock_top_page_instance(mock_user_page_instance):
+    mock_top_page_instance = mock_user_page_instance.go_to_top_page.return_value
+    mock_new_event_page_instance = MagicMock()
+    mock_new_event_page_instance.get_event_url.return_value = EVENT_URL
+    mock_top_page_instance.create_event.return_value = mock_new_event_page_instance
+
+    return mock_top_page_instance
 
 
 class TestChouseisan:
-    def test_create_event(self):
+    def test_create_event_returns_the_event_url(
+        self, mock_top_page_instance, mock_user_page_instance
+    ):
+        """create_event returns the event URL."""
         from chouseisan_py.chouseisan import Auth, Chouseisan
 
         email = "test@example.com"
@@ -21,5 +49,17 @@ class TestChouseisan:
         c = Chouseisan(auth)
         actual = c.create_event(title, candidates, comment)
 
-        expected = "https://chouseisan.com/s?h=test"
+        expected = EVENT_URL
         assert actual == expected
+        mock_user_page_instance.login.assert_called_once_with(email, password)
+        mock_top_page_instance.create_event.assert_called_once_with(
+            name=title,
+            comment=comment,
+            kouho=(
+                "10月17日(日) 19:10〜 \n"
+                "10月18日(月) 19:10〜 \n"
+                "10月19日(火) 20:10〜 \n"
+                "10月20日(水) 17:10〜 \n"
+                "10/22(金) 19:00〜"
+            ),
+        )
