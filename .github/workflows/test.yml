@@ -47,3 +47,4 @@ jobs:
     - run: poetry run pytest
       env:
         CI: true
+    - uses: codecov/codecov-action@v2

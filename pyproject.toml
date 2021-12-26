@@ -40,4 +40,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 minversion = 6.0
-addopts = "-q --flake8 --black --isort --mypy"
+addopts = "-q --flake8 --black --isort --mypy --cov --cov-report=xml"
