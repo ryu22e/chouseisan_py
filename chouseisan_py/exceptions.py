@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import Any
-
 
 class LoginError(Exception):
     # TODO Write docstring
@@ -11,9 +9,9 @@ class LoginError(Exception):
 class TagNotFoundError(Exception):
     # TODO Write docstring
 
-    def __init__(self, attrs: dict[str, Any]):
-        self._attrs = attrs
+    def __init__(self, selector: str):
+        self._selector = selector
 
     def __str__(self):
-        attrs = self._attrs
-        return f"TagNotFoundError(attrs={attrs})"
+        selector = self._selector
+        return f"TagNotFoundError(selector={selector})"
