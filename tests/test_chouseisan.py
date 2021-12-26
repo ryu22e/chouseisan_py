@@ -3,7 +3,7 @@ from datetime import datetime
 
 class TestChouseisan:
     def test_create_event(self):
-        from chouseisan_py import Auth, Chouseisan
+        from chouseisan_py.chouseisan import Auth, Chouseisan
 
         email = "test@example.com"
         password = "testpass"
