@@ -3,7 +3,6 @@ from __future__ import annotations
 from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
-from bs4.element import Tag
 from requests.sessions import Session
 
 from .exceptions import LoginError, TagNotFoundError
@@ -22,10 +21,10 @@ class UserPage:
         return user_link is not None
 
     def login(self, email: str, password: str) -> None:
-        attrs = {"id": "form_chousei_token"}
-        form_chousei_token = self.soup.find(attrs=attrs)
-        if not isinstance(form_chousei_token, Tag):
-            raise TagNotFoundError(attrs)
+        selector = "#form_chousei_token"
+        form_chousei_token = self.soup.select_one(selector)
+        if form_chousei_token is None:
+            raise TagNotFoundError(selector)
         chousei_token = form_chousei_token.get("value")
         data = {
             "chousei_token": chousei_token,
@@ -52,17 +51,17 @@ class TopPage:
         self.soup = BeautifulSoup(r.content, "html.parser")
 
     def _extract_action_url(self):
-        attrs = {"id": "newEventForm"}
-        new_event_form = self.soup.find(attrs=attrs)
-        if not isinstance(new_event_form, Tag):
-            raise TagNotFoundError(attrs)
+        selector = "#newEventForm"
+        new_event_form = self.soup.select_one(selector)
+        if new_event_form is None:
+            raise TagNotFoundError(selector)
         return new_event_form.get("action")
 
     def create_event(self, name: str, comment: str, kouho: str) -> NewEventPage:
-        attrs = {"id": "chousei_token"}
-        chousei_token = self.soup.find(attrs=attrs)
-        if not isinstance(chousei_token, Tag):
-            raise TagNotFoundError(attrs)
+        selector = "#chousei_token"
+        chousei_token = self.soup.select_one(selector)
+        if chousei_token is None:
+            raise TagNotFoundError(selector)
         chousei_token_value = chousei_token.get("value")
         data = {
             "chousei_token": chousei_token_value,
@@ -85,10 +84,10 @@ class NewEventPage:
         self.soup = soup
 
     def get_event_url(self) -> str:
-        attrs = {"id": "listUrl"}
-        list_url = self.soup.find(attrs=attrs)
-        if not isinstance(list_url, Tag):
-            raise TagNotFoundError(attrs)
+        selector = "#listUrl"
+        list_url = self.soup.select_one(selector)
+        if list_url is None:
+            raise TagNotFoundError(selector)
         value = list_url.get("value")
         if not value:
             value = ""
