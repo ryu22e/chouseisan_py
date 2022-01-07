@@ -588,7 +588,7 @@ python-versions = "*"
 
 [[package]]
 name = "types-beautifulsoup4"
-version = "4.10.7"
+version = "4.10.9"
 description = "Typing stubs for beautifulsoup4"
 category = "dev"
 optional = false
@@ -658,7 +658,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "8939b61b0bb4b15ee4be63d0b4f106d11bc6c629915a557842126fba807802a1"
+content-hash = "478a6d9769eb8fa4219d8573ad8aab0833cfcf1084ee2b65d0f76346ce503584"
 
 [metadata.files]
 atomicwrites = [
@@ -1019,8 +1019,8 @@ typed-ast = [
     {file = "typed_ast-1.4.3.tar.gz", hash = "sha256:fb1bbeac803adea29cedd70781399c99138358c26d05fcbd23c13016b7f5ec65"},
 ]
 types-beautifulsoup4 = [
-    {file = "types-beautifulsoup4-4.10.7.tar.gz", hash = "sha256:8a267194e405b7163bde055ef1120988c0221e5d58e1c5bfe08d601a21e63daf"},
-    {file = "types_beautifulsoup4-4.10.7-py3-none-any.whl", hash = "sha256:b450b70935b901f500125662ca1856fe6a3ba73ccc88b4fcd577a2b927cc8c14"},
+    {file = "types-beautifulsoup4-4.10.9.tar.gz", hash = "sha256:daefdbb205345d665e9543b286c74ead0d3c7d5c6d6e17395e3b046922000d42"},
+    {file = "types_beautifulsoup4-4.10.9-py3-none-any.whl", hash = "sha256:0e4aeb1efe3950bd3ce2cb476819211d67baddb9b2cf695bc0a9679c247c5b95"},
 ]
 types-requests = [
     {file = "types-requests-2.27.2.tar.gz", hash = "sha256:c902c5433ad103053011c6ac036317ac6f6a8e8a6926fc470a8d2ef791236da7"},
