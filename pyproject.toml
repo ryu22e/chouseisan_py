@@ -32,7 +32,7 @@ pre-commit = "^2.16.0"
 bump2version = "^1.0.1"
 pytest-responses = "^0.5.0"
 types-requests = "^2.27.2"
-types-beautifulsoup4 = "^4.10.7"
+types-beautifulsoup4 = "^4.10.9"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
