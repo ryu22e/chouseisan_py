@@ -5,6 +5,10 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 
+import requests
+
+from ._pages import UserPage
+
 
 @dataclass(frozen=True)
 class Auth:
@@ -18,19 +22,36 @@ class Auth:
 class Chouseisan:
     """Class to operate chouseisan.com."""
 
+    _WEEKDAY_JP = ("月", "火", "水", "木", "金", "土", "日")
+
     def __init__(self, auth: Auth | None = None):
         # TODO Write docstring
         self.auth = auth
+
+    def _strftime(self, candidate: datetime) -> str:
+        weekday_jp = self._WEEKDAY_JP[candidate.weekday()]
+        return (
+            f"{candidate.month}月{candidate.day}日({weekday_jp}) "
+            f"{candidate.hour}:{candidate:%m}〜 "
+        )
 
     def create_event(
         self,
         title: str,
         candidates: Iterable[datetime | str],
         comment: str = "",
-        *,
-        omit_year: bool = True,
     ) -> str:
         # TODO Write docstring
-        # TODO Write the production code
-        expected = "https://chouseisan.com/s?h=test"
-        return expected
+        session = requests.session()
+        user_page = UserPage(session)
+        if self.auth and not user_page.is_authenticated:
+            user_page.login(self.auth.email, self.auth.password)
+        top_page = user_page.go_to_top_page()
+        kouho_list = (
+            self._strftime(candidate) if isinstance(candidate, datetime) else candidate
+            for candidate in candidates
+        )
+        event = top_page.create_event(
+            name=title, comment=comment, kouho="\n".join(kouho_list)
+        )
+        return event.get_event_url()
