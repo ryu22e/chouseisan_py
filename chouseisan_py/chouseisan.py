@@ -1,3 +1,4 @@
+"""Automates the operations of `調整さん <https://chouseisan.com/>`_ (Chouseisan)."""
 from __future__ import annotations
 
 from collections.abc import Iterable
@@ -25,7 +26,10 @@ class Chouseisan:
     _WEEKDAY_JP = ("月", "火", "水", "木", "金", "土", "日")
 
     def __init__(self, auth: Auth | None = None):
-        # TODO Write docstring
+        """Initialize the Chouseisan instance.
+
+        :param auth: Credentials for chouseisan.com
+        """
         self.auth = auth
 
     def _strftime(self, candidate: datetime) -> str:
@@ -41,7 +45,13 @@ class Chouseisan:
         candidates: Iterable[datetime | str],
         comment: str = "",
     ) -> str:
-        # TODO Write docstring
+        """Create event.
+
+        :param title: Title of the event
+        :param candidates: Candidate days for the event
+        :param comment: Comment about the event
+        :returns: Event URL
+        """
         session = requests.session()
         user_page = UserPage(session)
         if self.auth and not user_page.is_authenticated:
