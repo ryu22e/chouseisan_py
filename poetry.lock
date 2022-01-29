@@ -518,11 +518,11 @@ tests = ["mock"]
 
 [[package]]
 name = "pytest-mock"
-version = "3.6.1"
+version = "3.7.0"
 description = "Thin-wrapper around the mock package for easier use with pytest"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
 pytest = ">=5.0"
@@ -881,7 +881,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "55e6b4b18294b987fa13457cc797ae864fe64896a2d4251b354e0ede1da4719a"
+content-hash = "dabe13d1dc9b6adfd0ecd5674ad75a4a8904f96ac289ec29da090506dff83305"
 
 [metadata.files]
 alabaster = [
@@ -1194,8 +1194,8 @@ pytest-isort = [
     {file = "pytest_isort-2.0.0-py3-none-any.whl", hash = "sha256:ab949c593213dad38ba75db32a0ce361fcddd11d4152be4a2c93b85104cc4376"},
 ]
 pytest-mock = [
-    {file = "pytest-mock-3.6.1.tar.gz", hash = "sha256:40217a058c52a63f1042f0784f62009e976ba824c418cced42e88d5f40ab0e62"},
-    {file = "pytest_mock-3.6.1-py3-none-any.whl", hash = "sha256:30c2f2cc9759e76eee674b81ea28c9f0b94f8f0445a1b87762cadf774f0df7e3"},
+    {file = "pytest-mock-3.7.0.tar.gz", hash = "sha256:5112bd92cc9f186ee96e1a92efc84969ea494939c3aead39c50f421c4cc69534"},
+    {file = "pytest_mock-3.7.0-py3-none-any.whl", hash = "sha256:6cff27cec936bf81dc5ee87f07132b807bcda51106b5ec4b90a04331cba76231"},
 ]
 pytest-mypy = [
     {file = "pytest-mypy-0.8.1.tar.gz", hash = "sha256:1fa55723a4bf1d054fcba1c3bd694215a2a65cc95ab10164f5808afd893f3b11"},
