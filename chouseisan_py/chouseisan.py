@@ -4,7 +4,6 @@ from __future__ import annotations
 from collections.abc import Iterable
 from dataclasses import dataclass
 from datetime import datetime
-from pathlib import Path
 
 import requests
 
@@ -17,7 +16,6 @@ class Auth:
 
     email: str
     password: str
-    storage_state_path: Path | str | None = None
 
 
 class Chouseisan:
