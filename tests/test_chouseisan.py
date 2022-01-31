@@ -2,6 +2,8 @@ from datetime import datetime
 from unittest.mock import MagicMock
 
 import pytest
+from requests import Session
+from requests.cookies import RequestsCookieJar
 
 
 @pytest.fixture()
@@ -63,3 +65,22 @@ class TestChouseisan:
                 "10/22(金) 19:00〜"
             ),
         )
+
+    def test_get_cookies(self, mocker):
+        """Get cookies."""
+        from chouseisan_py.chouseisan import Auth, Chouseisan
+
+        mock_session_klass = MagicMock(wraps=Session)
+        mocker.patch("requests.session", return_value=mock_session_klass)
+        cookies = RequestsCookieJar()
+        cookies["foo"] = "bar"
+        mock_session_klass.cookies = cookies
+        email = "test@example.com"
+        password = "testpass"
+
+        auth = Auth(email, password)
+        c = Chouseisan(auth)
+        actual = c.get_cookies()
+
+        expected = dict(cookies)
+        assert actual == expected

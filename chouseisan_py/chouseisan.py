@@ -29,6 +29,7 @@ class Chouseisan:
         :param auth: Credentials for chouseisan.com
         """
         self.auth = auth
+        self.session = requests.session()
 
     def _strftime(self, candidate: datetime) -> str:
         weekday_jp = self._WEEKDAY_JP[candidate.weekday()]
@@ -36,6 +37,10 @@ class Chouseisan:
             f"{candidate.month}月{candidate.day}日({weekday_jp}) "
             f"{candidate.hour}:{candidate:%m}〜 "
         )
+
+    def get_cookies(self) -> dict:
+        """Get cookies."""
+        return dict(self.session.cookies)
 
     def create_event(
         self,
@@ -50,8 +55,7 @@ class Chouseisan:
         :param comment: Comment about the event
         :returns: Event URL
         """
-        session = requests.session()
-        user_page = UserPage(session)
+        user_page = UserPage(self.session)
         if self.auth and not user_page.is_authenticated:
             user_page.login(self.auth.email, self.auth.password)
         top_page = user_page.go_to_top_page()
