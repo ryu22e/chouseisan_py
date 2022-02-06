@@ -84,3 +84,18 @@ class TestChouseisan:
 
         expected = dict(cookies)
         assert actual == expected
+
+    def test_set_cookies_during_initialization(self):
+        """Set cookies during initialization."""
+        from chouseisan_py.chouseisan import Auth, Chouseisan
+
+        email = "test@example.com"
+        password = "testpass"
+        cookies = {"foo": "bar"}
+
+        auth = Auth(email, password)
+        c = Chouseisan(auth, cookies)
+
+        actual = c.session.cookies.get_dict()
+        expected = cookies
+        assert actual == expected

@@ -23,13 +23,16 @@ class Chouseisan:
 
     _WEEKDAY_JP = ("月", "火", "水", "木", "金", "土", "日")
 
-    def __init__(self, auth: Auth | None = None):
+    def __init__(self, auth: Auth | None = None, cookies: dict | None = None):
         """Initialize the Chouseisan instance.
 
         :param auth: Credentials for chouseisan.com
+        :param cookies: Cookies
         """
         self.auth = auth
         self.session = requests.session()
+        if cookies:
+            self.session.cookies.update(cookies)
 
     def _strftime(self, candidate: datetime) -> str:
         weekday_jp = self._WEEKDAY_JP[candidate.weekday()]
