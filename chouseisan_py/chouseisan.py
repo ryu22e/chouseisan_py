@@ -40,7 +40,7 @@ class Chouseisan:
 
     def get_cookies(self) -> dict:
         """Get cookies."""
-        return dict(self.session.cookies)
+        return self.session.cookies.get_dict()
 
     def create_event(
         self,
