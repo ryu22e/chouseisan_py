@@ -39,7 +39,10 @@ class Chouseisan:
         )
 
     def get_cookies(self) -> dict:
-        """Get cookies."""
+        """Get cookies.
+
+        :returns: Cookies
+        """
         return self.session.cookies.get_dict()
 
     def create_event(
