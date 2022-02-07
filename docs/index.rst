@@ -10,6 +10,7 @@ Welcome to chouseisan_py's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   quickstart
    chouseisan_py
 
 
