@@ -38,7 +38,7 @@ class Chouseisan:
         weekday_jp = self._WEEKDAY_JP[candidate.weekday()]
         return (
             f"{candidate.month}月{candidate.day}日({weekday_jp}) "
-            f"{candidate.hour}:{candidate:%m}〜 "
+            f"{candidate.hour}:{candidate:%M}〜 "
         )
 
     def get_cookies(self) -> dict:
