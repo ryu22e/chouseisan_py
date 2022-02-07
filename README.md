@@ -6,7 +6,21 @@ Currently, it only supports creating events.
 [![codecov](https://codecov.io/gh/ryu22e/chouseisan_py/branch/main/graph/badge.svg?token=rB5RS1bewF)](https://codecov.io/gh/ryu22e/chouseisan_py)
 
 ## Installation
-TBD
+
+```python
+$ pip install chouseisan_py
+```
 
 ## Usage
-TBD
+
+```python
+>>> from datetime import datetime
+>>> from chouseisan_py.chouseisan import Auth, Chouseisan
+>>> auth = Auth(email="test@example.com", password="<secret>")
+>>> chouseisan = Chouseisan(auth)
+>>> chouseisan.create_event(
+...    title="test event",
+...    candidates=[datetime(2021, 10, 17, 19, 0), datetime(2021, 10, 18, 19, 0)]
+... )
+'https://chouseisan.com/s?h=f7b7fc11995b441782844bc3fddaf456'
+```
