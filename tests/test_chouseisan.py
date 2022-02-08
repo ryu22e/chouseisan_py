@@ -38,7 +38,7 @@ class TestChouseisan:
         email = "test@example.com"
         password = "testpass"
         title = "test event"
-        candidates = [
+        candidate_days = [
             datetime(2021, 10, 17, 19, 0),
             datetime(2021, 10, 18, 19, 0),
             datetime(2021, 10, 19, 20, 0),
@@ -49,7 +49,7 @@ class TestChouseisan:
 
         auth = Auth(email, password)
         c = Chouseisan(auth)
-        actual = c.create_event(title, candidates, comment)
+        actual = c.create_event(title, candidate_days, comment)
 
         expected = EVENT_URL
         assert actual == expected
