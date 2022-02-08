@@ -8,7 +8,7 @@ Currently, it only supports creating events.
 ## Installation
 
 ```python
-$ pip install chouseisan_py
+$ pip install chouseisan-py
 ```
 
 ## Usage
