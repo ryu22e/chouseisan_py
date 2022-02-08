@@ -51,13 +51,13 @@ class Chouseisan:
     def create_event(
         self,
         title: str,
-        candidates: Iterable[datetime | str],
+        candidate_days: Iterable[datetime | str],
         comment: str = "",
     ) -> str:
         """Create event.
 
         :param title: Title of the event
-        :param candidates: Candidate days for the event
+        :param candidate_days: Candidate days for the event
         :param comment: Comment about the event
         :returns: Event URL
         """
@@ -67,7 +67,7 @@ class Chouseisan:
         top_page = user_page.go_to_top_page()
         kouho_list = (
             self._strftime(candidate) if isinstance(candidate, datetime) else candidate
-            for candidate in candidates
+            for candidate in candidate_days
         )
         event = top_page.create_event(
             name=title, comment=comment, kouho="\n".join(kouho_list)
