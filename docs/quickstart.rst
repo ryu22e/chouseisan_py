@@ -6,7 +6,7 @@ Installation
 
 .. code-block:: shell
 
-   $ pip install chouseisan_py
+   $ pip install chouseisan-py
 
 Usage
 -----
