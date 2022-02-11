@@ -462,7 +462,7 @@ dev = ["pre-commit", "tox", "pytest-asyncio"]
 
 [[package]]
 name = "pytest-mypy"
-version = "0.9.0"
+version = "0.9.1"
 description = "Mypy static type checker plugin for Pytest"
 category = "dev"
 optional = false
@@ -478,7 +478,7 @@ mypy = [
 ]
 pytest = [
     {version = ">=6.2", markers = "python_version >= \"3.10\""},
-    {version = ">=4.6", markers = "python_version >= \"3.5\" and python_version < \"3.10\""},
+    {version = ">=4.6", markers = "python_version >= \"3.6\" and python_version < \"3.10\""},
 ]
 
 [[package]]
@@ -673,7 +673,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "7e62a29dad5fdf698d43b88843ff3002f4a474effafd4a1de4f71b4270df9a1c"
+content-hash = "e2a52dcf603f1cdbbf1d4a8a6a3d3c213e0ea0186ecf1e54945ae5e2ed864181"
 
 [metadata.files]
 atomicwrites = [
@@ -910,8 +910,8 @@ pytest-mock = [
     {file = "pytest_mock-3.7.0-py3-none-any.whl", hash = "sha256:6cff27cec936bf81dc5ee87f07132b807bcda51106b5ec4b90a04331cba76231"},
 ]
 pytest-mypy = [
-    {file = "pytest-mypy-0.9.0.tar.gz", hash = "sha256:4f2a08d4ff34737eb6ad6402df1e424f43c9213181b32d675e4e3cafbda67bbd"},
-    {file = "pytest_mypy-0.9.0-py3-none-any.whl", hash = "sha256:f8b5c6be405c8605959d1c79f20dcdeb2b3667fce8f264ff32bc854e5249f161"},
+    {file = "pytest-mypy-0.9.1.tar.gz", hash = "sha256:9ffa3bf405c12c5c6be9e92e22bebb6ab2c91b9c32f45b0f0c93af473269ab5c"},
+    {file = "pytest_mypy-0.9.1-py3-none-any.whl", hash = "sha256:a2505fcf61f1c0c51f950d4623ea8ca2daf6fb2101a5603554bad2e130202083"},
 ]
 pytest-randomly = [
     {file = "pytest-randomly-3.11.0.tar.gz", hash = "sha256:9f013b8c1923130f3d0a286fde56e1fc52cfb3547b8eedf2765c460cee979c7f"},
