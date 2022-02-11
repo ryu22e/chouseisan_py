@@ -60,6 +60,11 @@ class Chouseisan:
         :param candidate_days: Candidate days for the event
         :param comment: Comment about the event
         :returns: Event URL
+        :raises chouseisan_py.exceptions.LoginError: The login fails
+        :raises chouseisan_py.exceptions.TagNotFoundError:
+            The expected tag is not found in `調整さん <https://chouseisan.com/>`_
+            (Chouseisan)
+        :raises requests.HTTPError: An HTTP error occurred
         """
         user_page = UserPage(self.session)
         if self.auth and not user_page.is_authenticated:
