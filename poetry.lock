@@ -599,7 +599,7 @@ python-versions = "*"
 
 [[package]]
 name = "types-requests"
-version = "2.27.9"
+version = "2.27.10"
 description = "Typing stubs for requests"
 category = "dev"
 optional = false
@@ -672,7 +672,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "4e313940202d2b13043fc4a579bd3d3ea79db469aec38fbd1359ec762d6cd725"
+content-hash = "183ab5ceb986e25e2ae60ae52da7c94d122adc8697ac1f54b52deef31830d051"
 
 [metadata.files]
 atomicwrites = [
@@ -1015,8 +1015,8 @@ types-beautifulsoup4 = [
     {file = "types_beautifulsoup4-4.10.11-py3-none-any.whl", hash = "sha256:29d1c71b378e75c722bc63845dde8d69832f5fa398c8c1322a5fd144ff6df714"},
 ]
 types-requests = [
-    {file = "types-requests-2.27.9.tar.gz", hash = "sha256:7368974534d297939492efdfdab232930440b11e2203f6df1f0c40e3242a87ea"},
-    {file = "types_requests-2.27.9-py3-none-any.whl", hash = "sha256:74070045418faf710f3154403d6a16c9e67db50e5119906ca6955f1658d20f7b"},
+    {file = "types-requests-2.27.10.tar.gz", hash = "sha256:5dcb088fcaa778efeee6b7fc46967037e983fbfb9fec02594578bd33fd75e555"},
+    {file = "types_requests-2.27.10-py3-none-any.whl", hash = "sha256:6cb4fb0bbcbc585c57eeee6ffe5a47638dc89706b8d290ec89a77213fc5bad1a"},
 ]
 types-urllib3 = [
     {file = "types-urllib3-1.26.7.tar.gz", hash = "sha256:cfd1fbbe4ba9a605ed148294008aac8a7b8b7472651d1cc357d507ae5962e3d2"},
