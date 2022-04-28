@@ -13,22 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Install poetry
+      run: pipx install poetry
     - name: Set up Python
       uses: actions/setup-python@v3
       with:
         python-version: '3.x'
-    - name: Cache python modules
-      uses: actions/cache@v3
-      env:
-        cache-name: cache-python-modules
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/requirements_dev.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
-    - run: pip install -r requirements_dev.txt
+        cache: 'poetry'
     - name: Build and publish
       run: |
         poetry config pypi-token.pypi ${{ secrets.POETRY_PYPI_TOKEN_PYPI }}
