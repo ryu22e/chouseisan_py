@@ -18,7 +18,7 @@ jobs:
       with:
         python-version: '3.x'
     - name: Cache python modules
-      uses: actions/cache@v1
+      uses: actions/cache@v3
       env:
         cache-name: cache-python-modules
       with:
