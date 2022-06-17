@@ -30,7 +30,7 @@ pre-commit = "^2.19.0"
 bump2version = "^1.0.1"
 pytest-responses = "^0.5.0"
 types-requests = "^2.27.30"
-types-beautifulsoup4 = "^4.11.1"
+types-beautifulsoup4 = "^4.11.2"
 pytest-mock = "^3.7.0"
 
 [build-system]
