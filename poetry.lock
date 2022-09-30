@@ -452,11 +452,11 @@ dev = ["pre-commit", "pytest-asyncio", "tox"]
 
 [[package]]
 name = "pytest-mypy"
-version = "0.9.1"
+version = "0.10.0"
 description = "Mypy static type checker plugin for Pytest"
 category = "dev"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.6"
 
 [package.dependencies]
 attrs = ">=19.0"
@@ -663,7 +663,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=4.6)", "pytest-black (
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "b0022262792f13aa731ae056fe65462e8d9f9c9e5c5ce99ec344663e0819ef8b"
+content-hash = "391ce86c0399cfed2a3e165c78a6fc305a18c6008db714eaf0be6a1179bcebd4"
 
 [metadata.files]
 attrs = [
@@ -905,8 +905,8 @@ pytest-mock = [
     {file = "pytest_mock-3.9.0-py3-none-any.whl", hash = "sha256:1a1b9264224d026932d6685a0f9cef3b61d91563c3e74af9fe5afb2767e13812"},
 ]
 pytest-mypy = [
-    {file = "pytest-mypy-0.9.1.tar.gz", hash = "sha256:9ffa3bf405c12c5c6be9e92e22bebb6ab2c91b9c32f45b0f0c93af473269ab5c"},
-    {file = "pytest_mypy-0.9.1-py3-none-any.whl", hash = "sha256:a2505fcf61f1c0c51f950d4623ea8ca2daf6fb2101a5603554bad2e130202083"},
+    {file = "pytest-mypy-0.10.0.tar.gz", hash = "sha256:e74d632685f15a39c31c551a9d8cec4619e24bd396245a6335c5db0ec6d17b6f"},
+    {file = "pytest_mypy-0.10.0-py3-none-any.whl", hash = "sha256:83843dce75a7ce055efb264ff40dad2ecf7abd4e7bd5e5eda015261d11616abb"},
 ]
 pytest-randomly = [
     {file = "pytest-randomly-3.12.0.tar.gz", hash = "sha256:d60c2db71ac319aee0fc6c4110a7597d611a8b94a5590918bfa8583f00caccb2"},
