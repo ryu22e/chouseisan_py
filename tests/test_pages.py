@@ -162,6 +162,24 @@ class TestUserPage:
 
         assert type(actual) is TopPage
 
+    def test_get_event_items(self, html, responses):
+        """Get event list."""
+        from chouseisan_py._pages import EventItem, UserPage
+
+        responses.add(
+            responses.GET, "https://chouseisan.com/user", body=html.read("user.html")
+        )
+        session = requests.session()
+
+        p = UserPage(session)
+        actual = p.get_event_items()
+
+        expected = (
+            EventItem(title="テストイベント1"),
+            EventItem(title="テストイベント2"),
+        )
+        assert actual == expected
+
 
 class TestTopPage:
     def test_show_top_page(self, html, responses):

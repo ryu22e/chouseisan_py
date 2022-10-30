@@ -1,14 +1,87 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>testさんのマイページ | 調整さん</title>
-</head>
-<body>
-  <ul id="header_user_menu_ul" class="header-user-menu-ul">
-    <li id="header_user_menu_title_li" class="menu-title-li">マイメニュー ▼</li>
-    <a href="/user"><li class="menu-item-li">マイページ</li></a>
-    <a href="/auth/logout"><li class="menu-item-li">ログアウト</li></a>
-  </ul>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>testさんのマイページ | 調整さん</title>
+  </head>
+  <body>
+    <ul id="header_user_menu_ul" class="header-user-menu-ul">
+      <li id="header_user_menu_title_li" class="menu-title-li">マイメニュー ▼</li>
+      <a href="/user"><li class="menu-item-li">マイページ</li></a>
+      <a href="/auth/logout"><li class="menu-item-li">ログアウト</li></a>
+    </ul>
+    <div class="my-page-main-content-div">
+      <div class="user-notification-div">
+      </div>
+
+      <div class="event-history-div">
+        <h2><span class="icon-star"></span>イベント履歴</h2>
+        <ul class="event-list-ul">
+          <li class="event-list-li">
+            <div class="event-item">
+              <a href="https://chouseisan.com/s?h=test1">
+                <div class="event-card-head-div member-type-guest clearfix">
+                  <p class="member-type-p member-type-guest">参加者</p>
+                  <p class="event-update-datetime-p">2022-10-27 21:35:59</p>
+                </div>
+                <div class="event-card-body-div clearfix">
+                  <h3>テストイベント1</h3>
+                  <ul class="event-choices-ul clearfix">
+                    <li>11/1(火) 19:00〜</li>
+                    <li>11/2(水) 19:00〜</li>
+                    <li>11/7(月) 19:00〜</li>
+                    <li>11/8(火) 19:00〜</li>
+                    <li>11/9(水) 13:00〜</li>
+                    <li>11/11(金) 10:00〜</li>
+                  </ul>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="event-list-li">
+            <div class="event-item">
+              <a href="https://chouseisan.com/s?h=test2">
+                <div class="event-card-head-div member-type-host clearfix">
+                  <p class="member-type-p member-type-host">幹事</p>
+                  <p class="event-update-datetime-p">2022-10-30 13:49:37</p>
+                </div>
+                <div class="event-card-body-div clearfix">
+                  <h3>テストイベント2</h3>
+                  <ul class="event-choices-ul clearfix">
+                    <li>11/1(火) 19:00〜</li>
+                    <li>11/2(水) 19:00〜</li>
+                    <li>11/7(月) 19:00〜</li>
+                    <li>11/8(火) 19:00〜</li>
+                    <li>11/9(水) 13:00〜</li>
+                    <li>11/11(金) 10:00〜</li>
+                  </ul>
+                </div>
+              </a>
+            </div>
+          </li>
+        </ul>
+        <nav>
+          <ul class="pagination">
+            <li class="disabled" aria-disabled="true" aria-label="« 前">
+              <span aria-hidden="true">‹</span>
+            </li>
+            <li class="active" aria-current="page"><span>1</span></li>
+            <li><a href="https://chouseisan.com/user?page=2">2</a></li>
+            <li><a href="https://chouseisan.com/user?page=3">3</a></li>
+            <li><a href="https://chouseisan.com/user?page=4">4</a></li>
+            <li><a href="https://chouseisan.com/user?page=5">5</a></li>
+            <li><a href="https://chouseisan.com/user?page=6">6</a></li>
+            <li><a href="https://chouseisan.com/user?page=7">7</a></li>
+            <li><a href="https://chouseisan.com/user?page=8">8</a></li>
+            <li><a href="https://chouseisan.com/user?page=9">9</a></li>
+            <li><a href="https://chouseisan.com/user?page=10">10</a></li>
+            <li><a href="https://chouseisan.com/user?page=11">11</a></li>
+            <li>
+              <a href="https://chouseisan.com/user?page=2" rel="next" aria-label="次 »">›</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </body>
 </html>

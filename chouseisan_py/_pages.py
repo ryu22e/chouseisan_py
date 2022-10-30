@@ -1,11 +1,17 @@
 from __future__ import annotations
 
+from dataclasses import dataclass
 from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 from requests.sessions import Session
 
 from .exceptions import LoginError, TagNotFoundError
+
+
+@dataclass(frozen=True)
+class EventItem:
+    title: str
 
 
 class UserPage:
@@ -41,6 +47,9 @@ class UserPage:
 
     def go_to_top_page(self) -> TopPage:
         return TopPage(self.session)
+
+    def get_event_items(self) -> tuple[EventItem, ...]:
+        return (EventItem(title="テストイベント1"), EventItem(title="テストイベント2"))
 
 
 class TopPage:
