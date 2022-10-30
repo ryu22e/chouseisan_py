@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import Iterator
 from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
@@ -48,8 +49,12 @@ class UserPage:
     def go_to_top_page(self) -> TopPage:
         return TopPage(self.session)
 
-    def get_event_items(self) -> tuple[EventItem, ...]:
-        return (EventItem(title="テストイベント1"), EventItem(title="テストイベント2"))
+    def get_event_items(self) -> Iterator[EventItem]:
+        event_items = self.soup.find_all("div", class_="event-item")
+        return (
+            EventItem(title=event_item.h3.text)
+            for event_item in event_items
+        )
 
 
 class TopPage:

@@ -172,12 +172,12 @@ class TestUserPage:
         session = requests.session()
 
         p = UserPage(session)
-        actual = p.get_event_items()
+        actual = list(p.get_event_items())
 
-        expected = (
+        expected = [
             EventItem(title="テストイベント1"),
             EventItem(title="テストイベント2"),
-        )
+        ]
         assert actual == expected
 
 
