@@ -13,6 +13,7 @@ from .exceptions import LoginError, TagNotFoundError
 @dataclass(frozen=True)
 class EventItem:
     title: str
+    url: str
 
 
 class UserPage:
@@ -51,7 +52,10 @@ class UserPage:
 
     def get_event_items(self) -> Iterator[EventItem]:
         event_items = self.soup.find_all("div", class_="event-item")
-        return (EventItem(title=event_item.h3.text) for event_item in event_items)
+        return (
+            EventItem(title=event_item.h3.text, url=event_item.a.get("href"))
+            for event_item in event_items
+        )
 
 
 class TopPage:

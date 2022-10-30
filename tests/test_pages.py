@@ -175,8 +175,8 @@ class TestUserPage:
         actual = list(p.get_event_items())
 
         expected = [
-            EventItem(title="テストイベント1"),
-            EventItem(title="テストイベント2"),
+            EventItem(title="テストイベント1", url="https://chouseisan.com/s?h=test1"),
+            EventItem(title="テストイベント2", url="https://chouseisan.com/s?h=test2"),
         ]
         assert actual == expected
 
