@@ -10,7 +10,7 @@ repository = "https://github.com/ryu22e/chouseisan_py"
 classifiers = []
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 requests = "^2.27.1"
 beautifulsoup4 = "^4.10.0"
 # See: https://github.com/python-poetry/poetry/issues/8287#issuecomment-1915289914
