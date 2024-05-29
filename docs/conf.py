@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath("../"))
 # -- Project information -----------------------------------------------------
 
 project = "chouseisan_py"
-copyright = "2021-2023, Ryuji Tsutsui"
+copyright = "2021-2024, Ryuji Tsutsui"
 author = "Ryuji Tsutsui"
 
 # The full version, including alpha/beta/rc tags
