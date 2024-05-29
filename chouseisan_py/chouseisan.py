@@ -1,4 +1,5 @@
 """Automates the operations of `調整さん <https://chouseisan.com/>`_ (Chouseisan)."""
+
 from __future__ import annotations
 
 from collections.abc import Iterable

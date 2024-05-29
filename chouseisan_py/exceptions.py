@@ -1,5 +1,6 @@
 """Errors that occurs during
  `調整さん <https://chouseisan.com/>`_ (Chouseisan) operation."""
+
 from __future__ import annotations
 
 
