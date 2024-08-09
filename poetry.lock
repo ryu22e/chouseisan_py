@@ -568,18 +568,22 @@ testing = ["fields", "hunter", "process-tests", "pytest-xdist", "virtualenv"]
 
 [[package]]
 name = "pytest-flake8"
-version = "1.1.1"
+version = "1.2.0"
 description = "pytest plugin to check FLAKE8 requirements"
 optional = false
-python-versions = "*"
+python-versions = ">=3.8"
 files = [
-    {file = "pytest-flake8-1.1.1.tar.gz", hash = "sha256:ba4f243de3cb4c2486ed9e70752c80dd4b636f7ccb27d4eba763c35ed0cd316e"},
-    {file = "pytest_flake8-1.1.1-py2.py3-none-any.whl", hash = "sha256:e0661a786f8cbf976c185f706fdaf5d6df0b1667c3bcff8e823ba263618627e7"},
+    {file = "pytest_flake8-1.2.0-py3-none-any.whl", hash = "sha256:f3e09b79b260d17850eb8c0a3a1b6dae4a803dfc1a01b94cbaaf65b05b851e42"},
+    {file = "pytest_flake8-1.2.0.tar.gz", hash = "sha256:69938811c51149b197c3eb8d490d9c43faceae50b2bc6f789707c1e5bf10d0de"},
 ]
 
 [package.dependencies]
 flake8 = ">=4.0"
 pytest = ">=7.0"
+
+[package.extras]
+doc = ["furo", "jaraco.packaging (>=9.3)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-lint"]
+test = ["pytest (>=6,!=8.1.*)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=2.2)", "pytest-mypy", "pytest-ruff (>=0.2.1)"]
 
 [[package]]
 name = "pytest-isort"
@@ -920,4 +924,4 @@ test = ["big-O", "jaraco.functools", "jaraco.itertools", "jaraco.test", "more-it
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "b91e2cd75de3945073f6b178dda0ef325d544ad3c70ff8d6e33a3128f5dd0719"
+content-hash = "03f956b10f7559c92de087065a2233b050964ba57e058ed68de11faf0c5bbae8"
